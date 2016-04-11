@@ -8,15 +8,15 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Mapper.Context;
 
 public class FlightMap extends Mapper<LongWritable, Text, Text, IntWritable>{
-	private final static IntWritable one = new IntWritable(1);
-    private Text word = new Text();
+	private IntWritable cDist = new IntWritable();
+    private Text cKey = new Text();
         
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String line = value.toString();
-        StringTokenizer tokenizer = new StringTokenizer(line);
-        while (tokenizer.hasMoreTokens()) {
-            word.set(tokenizer.nextToken());
-            context.write(word, one);
-        }
+        String fields[] = line.split(",");
+        
+        cKey.set(fields[0]+"-"+fields[9]);
+        cDist.set(Integer.parseInt(fields[18]));
+        context.write(cKey, cDist);
     }
 }

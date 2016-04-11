@@ -42,7 +42,6 @@ public class FlightLog {
 		
 		// reducer
 		job.setReducerClass(FlightReduce.class);
-		job.setNumReduceTasks(0);
 		
 		// run
 		job.waitForCompletion(true);
