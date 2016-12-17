@@ -1,16 +1,19 @@
+package distance.top;
 import java.io.IOException;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class FlightReduce extends Reducer<Text, IntWritable, Text, IntWritable> {
+public class FlightTopDistanceReduce extends Reducer<Text, IntWritable, Text, IntWritable> {
 	public void reduce(Text key, Iterable<IntWritable> values, Context context)
 			throws IOException, InterruptedException {
-		int sum = 0;
+		int top = 0;
 		for (IntWritable val : values) {
-			sum += val.get();
+			if(val.get()>top){
+				top = val.get();
+			}
 		}
-		context.write(key, new IntWritable(sum));
+		context.write(key, new IntWritable(top));
 	}
 }

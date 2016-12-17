@@ -8,6 +8,9 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
+import distance.top.FlightTopDistanceMap;
+import distance.top.FlightTopDistanceReduce;
+
 
 /**
  * 
@@ -17,7 +20,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
  * @author 984620
  *
  */
-public class FlightLog {
+public class FlightTopDistance {
 
 	/**
 	 * @param args
@@ -38,11 +41,10 @@ public class FlightLog {
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
 		// mapper
-		job.setMapperClass(FlightMap.class);
+		job.setMapperClass(FlightTopDistanceMap.class);
 		
 		// reducer
-		job.setReducerClass(FlightReduce.class);
-		job.setNumReduceTasks(0);
+		job.setReducerClass(FlightTopDistanceReduce.class);
 		
 		// run
 		job.waitForCompletion(true);
