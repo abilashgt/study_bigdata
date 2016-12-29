@@ -24,12 +24,12 @@ public class PhoneGeneratingUdtf extends GenericUDTF {
     public StructObjectInspector initialize(ObjectInspector[] args) throws UDFArgumentException {
 
         if (args.length != 1) {
-            throw new UDFArgumentException("NameParserGenericUDTF() takes exactly one argument");
+            throw new UDFArgumentException("PhoneParser: takes exactly one argument");
         }
 
         if (args[0].getCategory() != ObjectInspector.Category.PRIMITIVE
                     && ((PrimitiveObjectInspector) args[0]).getPrimitiveCategory() != PrimitiveObjectInspector.PrimitiveCategory.STRING) {
-            throw new UDFArgumentException("NameParserGenericUDTF() takes a string as a parameter");
+            throw new UDFArgumentException("PhoneParser: takes a string as a parameter");
         }
 
         // input inspectors
