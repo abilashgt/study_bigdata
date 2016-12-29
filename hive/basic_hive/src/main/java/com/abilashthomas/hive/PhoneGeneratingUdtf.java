@@ -15,7 +15,10 @@ import java.util.List;
 
 /**
  * Created by Abilash George Thomas on 12/29/2016.
- * Email: abhilash.z.thomas.ap@nielsen.com
+ *
+ * Reference:
+ * https://acadgild.com/blog/hive-udtf/
+ * http://beekeeperdata.com/posts/hadoop/2015/07/26/Hive-UDTF-Tutorial.html
  */
 public class PhoneGeneratingUdtf extends GenericUDTF {
     private PrimitiveObjectInspector stringOI = null;

@@ -2,11 +2,9 @@ package com.abilashthomas.hive;
 
 import org.apache.hadoop.hive.ql.exec.UDAF;
 import org.apache.hadoop.hive.ql.exec.UDAFEvaluator;
-import org.apache.hadoop.hive.ql.metadata.HiveException;
-import org.apache.hadoop.hive.ql.udf.generic.AbstractGenericUDAFResolver;
-import org.apache.hadoop.hive.ql.udf.generic.GenericUDAFEvaluator;
 
 import java.util.ArrayList;
+
 
 
 public class PriceAggregatorUdaf extends UDAF {
@@ -30,10 +28,21 @@ public class PriceAggregatorUdaf extends UDAF {
         }
 
 
+        /**
+         * Terminating results that don't reach reducer
+         *
+         * @return
+         */
         public ArrayList<Double> terminatePartial() {
             return factList;
         }
 
+        /**
+         * Merging outputs from each mapper
+         *
+         * @param factListTemp
+         * @return
+         */
         public boolean merge(ArrayList<Double> factListTemp) {
             if(factListTemp!=null)
                 factList.addAll(factListTemp);
