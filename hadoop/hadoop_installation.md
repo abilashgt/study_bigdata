@@ -58,7 +58,7 @@ export PATH=$PATH:$HADOOP_HOME/bin
 
 
 ### Step 7. Edit the hdfs-site.xml (in /etc/hadoop) ###
-
+```xml
 <property>
 	<name>dfs.name.dir</name>
 	<value>/home/xxxxxx/hadoop-xxx/pseudo/dfs/name</value>
@@ -71,7 +71,7 @@ export PATH=$PATH:$HADOOP_HOME/bin
 	<name>dfs.replication</name>
 	<value>1</value>
 </property>
-
+```
 
 ### Step 8. Edit the yarn-site.xml (in /etc/hadoop) ###
 
