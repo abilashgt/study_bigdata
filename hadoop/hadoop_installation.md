@@ -46,7 +46,7 @@ export PATH=$PATH:$HADOOP_HOME/bin
 
 
 ### Step 6. Edit the core-site.xml (in /etc/hadoop) ###
-
+```xml
 <property>
 	<name>fs.default.name</name>
 	<value>hdfs://127.0.0.1:9000</value>
@@ -55,7 +55,7 @@ export PATH=$PATH:$HADOOP_HOME/bin
 	<name>fs.tmp.dir</name>
 	<value>/home/hadoop/hadoop-2.0.0-mr1-cdh4.3.0/pseudo</value>
 </property>
-
+```
 
 ### Step 7. Edit the hdfs-site.xml (in /etc/hadoop) ###
 ```xml
@@ -74,20 +74,20 @@ export PATH=$PATH:$HADOOP_HOME/bin
 ```
 
 ### Step 8. Edit the yarn-site.xml (in /etc/hadoop) ###
-
+```xml
 <property>
 	<name>yarn.nodemanager.aux-services</name>
 	<value>mapreduce_shuffle</value>
 </property>
-
+```
 
 ### Step 9. Edit mapred-site.xml (in /etc/hadoop) ###
-
+```xml
 <property>
 	<name>yarn.nodemanager.aux-services</name>
 	<value>mapreduce_shuffle</value>
 </property>
-
+```
 
 ### Step 10 - Make pseudo directory and format namenode ###
 
