@@ -6,12 +6,12 @@
 Download hadoop from Apache or Cloudera
 
 
-Step 2: Unzip the file
+### Step 2: Unzip the file ###
 
 uncompress hadoop-x.x.x.tar.gz to a directory. eg. /opt/hadoop
 
 
-Step 3: Genearte key
+### Step 3: Genearte key  ###
 
 $ ssh-keygen
 
@@ -20,14 +20,14 @@ $ ssh-copy-id -i XXXXXX@localhost
 $ ssh localhost - to verify
 
 
-Step 4: Update JAVA_HOME
+### Step 4: Update JAVA_HOME ###
 
 $ locate jps - to locate java home
 
 $ Update JAVA_HOME in etc/hadoop/hadoop-env.sh
 
 
-Step 5: Set paths
+### Step 5: Set paths ###
 
 Set the PATH and CLASSPATH variables appropriately in the .bash_profile file
 
@@ -45,7 +45,9 @@ export YARN_HOME=$HADOOP_HOME
 export PATH=$PATH:$HADOOP_HOME/bin
 
 
-6. Edit the core-site.xml (in /etc/hadoop) file as follows
+### Step 6. Edit the core-site.xml (in /etc/hadoop) ###
+
+file as follows
 
 <property>
 	<name>fs.default.name</name>
@@ -57,7 +59,7 @@ export PATH=$PATH:$HADOOP_HOME/bin
 </property>
 
 
-7. Edit the hdfs-site.xml (in /etc/hadoop)
+### Step 7. Edit the hdfs-site.xml (in /etc/hadoop) ###
 
 //Update the path to reflect your installation home directory
 
@@ -75,7 +77,7 @@ export PATH=$PATH:$HADOOP_HOME/bin
 </property>
 
 
-8. Edit the yarn-site.xml (in /etc/hadoop)
+### Step 8. Edit the yarn-site.xml (in /etc/hadoop) ###
 
 <property>
 	<name>yarn.nodemanager.aux-services</name>
@@ -83,7 +85,7 @@ export PATH=$PATH:$HADOOP_HOME/bin
 </property>
 
 
-9. Edit mapred-site.xml (in /etc/hadoop)
+### Step 9. Edit mapred-site.xml (in /etc/hadoop) ###
 
 <property>
 	<name>yarn.nodemanager.aux-services</name>
@@ -91,26 +93,28 @@ export PATH=$PATH:$HADOOP_HOME/bin
 </property>
 
 
-10. Make a directory pseudo under hadoop-xxx folder (if doesn't exist).
+### Step 10 - Make pseudo directory and format namenode ###
+
+	Make a directory pseudo under hadoop-xxx folder (if doesn't exist).
 	
 	mkdir pseudo
 	chmod 777 pseudo
+	$bin/hadoop namenode -format - to format namenode
 
 
-11. Edit masters and slaves file in /etc/hadoop/conf and change the localhost to 127.0.0.1
+### Step 11 - Edit masters and slaves ###
+
+Edit masters and slaves file in /etc/hadoop/conf and change the localhost to 127.0.0.1
 
 
-12. Format the name node
-
-	$bin/hadoop namenode -format
-
-13. Starting your single-node cluster ,To start all the daemons
+### Step 13. Starting your single-node cluster ,To start all the daemons
 
 	$sbin/start-dfs.sh
 	$sbin/start-yarn.sh
 	run jps - to view started daemons
 
-14. To see files in HDFS
+
+### Step 14. To see files in HDFS ###
 	$bin/hadoop fs -ls /
 
 	//Verify the working, Create a directory in HDFS
@@ -123,8 +127,7 @@ export PATH=$PATH:$HADOOP_HOME/bin
 
 
 
-
-15. Run a sample MapReduce job
+### Step 15. Run a sample MapReduce job ###
 
 	//Copy local data to HDFS .Run the MapReduce job. Now, we actually run the WordCount
 
@@ -137,7 +140,8 @@ export PATH=$PATH:$HADOOP_HOME/bin
 
 	hdfs://localhost:9000/output
 
-16. Output is as shown below
+
+### Step 16. Output is as shown below ###
 
 	[xxxxxx@01hw743932 bin]$ hadoop fs -ls /output/
 
@@ -151,6 +155,6 @@ export PATH=$PATH:$HADOOP_HOME/bin
 	Leo 4
 	hi 2
 
-17. To copy files from HDFS onto local system, use below command.
+### Step 17. To copy files from HDFS onto local system, use below command ###
 
 	$ bin/hadoop fs -copyToLocal /output/part-r-00000 .
