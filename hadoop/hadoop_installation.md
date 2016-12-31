@@ -31,23 +31,21 @@ $ Update JAVA_HOME in etc/hadoop/hadoop-env.sh
 
 Set the PATH and CLASSPATH variables appropriately in the .bash_profile file
 
-export JAVA_HOME=path-to-jdk
-export HADOOP_HOME=path-to-hadoop
-export HADOOP_PREFIX=$HADOOP_HOME
-export HADOOP_MAPRED_HOME=$HADOOP_HOME 
-export HADOOP_COMMON_HOME=$HADOOP_HOME 
-export HADOOP_HDFS_HOME=$HADOOP_HOME 
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
-export CLASSPATH=$CLASSPATH:$HADOOP_HOME/share/hadoop/hdfs:$HADOOP_HOME/share/hadoop/hdfs/lib:$HADOOP_HOME/share/hadoop/common:$HADOOP_HOME/share/hadoop/common/lib
-export YARN_HOME=$HADOOP_HOME
+export JAVA_HOME=path-to-jdk  
+export HADOOP_HOME=path-to-hadoop  
+export HADOOP_PREFIX=$HADOOP_HOME  
+export HADOOP_MAPRED_HOME=$HADOOP_HOME  
+export HADOOP_COMMON_HOME=$HADOOP_HOME  
+export HADOOP_HDFS_HOME=$HADOOP_HOME  
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native  
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"  
+export CLASSPATH=$CLASSPATH:$HADOOP_HOME/share/hadoop/hdfs:$HADOOP_HOME/share/hadoop/hdfs/lib:$HADOOP_HOME/share/hadoop/common:$HADOOP_HOME/share/hadoop/common/lib  
+export YARN_HOME=$HADOOP_HOME  
 
-export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/bin  
 
 
 ### Step 6. Edit the core-site.xml (in /etc/hadoop) ###
-
-file as follows
 
 <property>
 	<name>fs.default.name</name>
@@ -60,8 +58,6 @@ file as follows
 
 
 ### Step 7. Edit the hdfs-site.xml (in /etc/hadoop) ###
-
-//Update the path to reflect your installation home directory
 
 <property>
 	<name>dfs.name.dir</name>
