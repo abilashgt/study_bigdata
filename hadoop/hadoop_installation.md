@@ -1,4 +1,7 @@
-Step 1: Download Hadoop
+# Hadoop Installation in local machine #
+## Single node cluster ##
+
+### Step 1: Download Hadoop ###
 
 Download hadoop from Apache or Cloudera
 
@@ -10,18 +13,18 @@ uncompress hadoop-x.x.x.tar.gz to a directory. eg. /opt/hadoop
 
 Step 3: Genearte key
 
-# ssh-keygen
+$ ssh-keygen
 
-# ssh-copy-id -i XXXXXX@localhost
+$ ssh-copy-id -i XXXXXX@localhost
 
-# ssh localhost - to verify
+$ ssh localhost - to verify
 
 
 Step 4: Update JAVA_HOME
 
-# locate jps - to locate java home
+$ locate jps - to locate java home
 
-# Update JAVA_HOME in etc/hadoop/hadoop-env.sh
+$ Update JAVA_HOME in etc/hadoop/hadoop-env.sh
 
 
 Step 5: Set paths
