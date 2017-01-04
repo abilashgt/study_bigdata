@@ -8,7 +8,7 @@ package examples
   */
 import org.apache.spark.{SparkConf, SparkContext}
 
-object SparkWordCount {
+object WordCount {
   def main(args: Array[String]) {
     // create Spark context with Spark configuration
     val sc = new SparkContext(new SparkConf().setAppName("Spark Count").setMaster("local"))

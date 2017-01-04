@@ -124,7 +124,7 @@
               </execution>
             </executions>
             <configuration>
-              <mainClass>examples.SparkWordCount</mainClass>
+              <mainClass>examples.WordCount</mainClass>
               <arguments>
                 <argument>testinputfile.txt</argument>
                 <argument>2</argument>
