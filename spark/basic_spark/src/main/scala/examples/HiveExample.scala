@@ -16,6 +16,6 @@ object HiveExample {
     hc.sql("create table test_table(id int, name string)")
     hc.sql("insert into test_table values (1,11),(2,22)")
     hc.sql("select * from test_table").show
-    hc.sql("DROP TABLE IF EXISTS test_table")
+    //hc.sql("DROP TABLE IF EXISTS test_table")
   }
 }
