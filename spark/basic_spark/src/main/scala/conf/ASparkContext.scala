@@ -6,7 +6,7 @@ import org.apache.spark.{SparkContext, SparkConf}
   * Created by Abilash George Thomas
   */
 object ASparkContext {
-    private val sparkConf = new SparkConf().setMaster("local").setAppName("PI Modeling")
+    private val sparkConf = new SparkConf().setMaster("local").setAppName("basic_spark")
             .set("spark.shuffle.consolidateFiles", "true")
             .set("spark.shuffle.spill", "true")
             .set("spark.shuffle.file.buffer", "32")

@@ -11,7 +11,11 @@ import conf.AHiveContext
 object HiveExample {
   def main(args: Array[String]) {
     val hc = AHiveContext.getHiveContext()
-    val df = hc.sql("select * from study_hive.test_table")
-    df.show
+
+    hc.sql("DROP TABLE IF EXISTS test_table")
+    hc.sql("create table test_table(id int, name string)")
+    hc.sql("insert into test_table values (1,11),(2,22)")
+    hc.sql("select * from test_table").show
+    hc.sql("DROP TABLE IF EXISTS test_table")
   }
 }
