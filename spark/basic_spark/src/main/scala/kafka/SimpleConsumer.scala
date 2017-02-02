@@ -1,18 +1,16 @@
-package kafka;
-
+package kafka
 
 import java.util.{Arrays, Properties}
-
 import org.apache.kafka.clients.consumer.KafkaConsumer
-
 import scala.collection.JavaConversions._
-
 
 /**
   * Created by 984620 on 30/1/17.
   * Environment:
   * * Apache Spark 2.10
-  * * Kaf
+  * * Kafka 2.11 - 0.10.1.1
+  * Configs:
+  * * Topic: Hello-Kafka
   */
 object SimpleConsumer {
   def main(args: Array[String]): Unit ={
