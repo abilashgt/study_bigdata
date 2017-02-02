@@ -5,7 +5,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer
 import scala.collection.JavaConversions._
 
 /**
-  * Created by 984620 on 30/1/17.
+  * Created by Abilash George Thomas on 30/1/17.
   * Environment:
   * * Apache Spark 2.10
   * * Kafka 2.11 - 0.10.1.1
@@ -15,7 +15,7 @@ import scala.collection.JavaConversions._
 object SimpleConsumer {
   def main(args: Array[String]): Unit ={
     //Kafka consumer configuration settings
-    val props = new Properties();
+    val props = new Properties()
     props.put("bootstrap.servers", "localhost:9092")
     props.put("group.id", "test")
     props.put("enable.auto.commit", "true")
