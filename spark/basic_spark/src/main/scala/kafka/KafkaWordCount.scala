@@ -1,9 +1,17 @@
 package kafka
 
-import org.apache.spark.SparkConf
+import conf.ASparkConf
 import org.apache.spark.streaming._
 import org.apache.spark.streaming.kafka._
 
+/**
+  * Created by Abilash George Thomas on 6/2/17.
+  * Prerequesites:
+  * * Code is for Local machine setup only
+  * * Kafka and Hadoop should be started
+  * * Kafka Group: test
+  * * Kafka Topic: Hello-Kafka
+  */
 object KafkaWordCount {
   def main(args: Array[String]) {
     if (args.length < 4) {
@@ -12,8 +20,7 @@ object KafkaWordCount {
     }
 
     val Array(zkQuorum, group, topics, numThreads) = args
-    val sparkConf = new SparkConf().setAppName("KafkaWordCount")
-    val ssc = new StreamingContext(sparkConf, Seconds(2))
+    val ssc = new StreamingContext(ASparkConf.sparkConf, Seconds(2))
     ssc.checkpoint("checkpoint")
 
     val topicMap = topics.split(",").map((_, numThreads.toInt)).toMap
