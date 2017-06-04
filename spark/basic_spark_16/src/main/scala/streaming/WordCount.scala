@@ -1,8 +1,7 @@
 package streaming
 
-import conf.ASparkConf
+import conf.SparkStreamConf
 import org.apache.spark.storage.StorageLevel
-import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 /**
   * Created by Abilash George Thomas on 2/2/17.
@@ -12,7 +11,7 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
   */
 object WordCount {
   def main(args: Array[String]): Unit ={
-    val ssc = new StreamingContext(ASparkConf.sparkConf, Seconds(5))
+    val ssc = SparkStreamConf.context
 
     if (args.length < 2) {
       System.err.println("Usage: NetworkWordCount <hostname> <port>")

@@ -11,7 +11,7 @@ import conf.SparkConf
 object WordCount {
   def main(args: Array[String]) {
     // create Spark context with Spark configuration
-    val sc = SparkConf.sparkContext
+    val sc = SparkConf.context
 
     // get threshold
     val threshold = args(1).toInt
