@@ -6,12 +6,12 @@ package examples
   * Reference:
   * https://www.cloudera.com/documentation/enterprise/5-5-x/topics/spark_develop_run.html
   */
-import org.apache.spark.{SparkConf, SparkContext}
+import conf.SparkConf
 
 object WordCount {
   def main(args: Array[String]) {
     // create Spark context with Spark configuration
-    val sc = new SparkContext(new SparkConf().setAppName("Spark Count").setMaster("local"))
+    val sc = SparkConf.sparkContext
 
     // get threshold
     val threshold = args(1).toInt

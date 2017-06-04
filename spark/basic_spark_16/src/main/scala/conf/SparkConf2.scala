@@ -5,7 +5,7 @@ import org.apache.spark.{SparkContext, SparkConf}
 /**
   * Created by Abilash George Thomas
   */
-object ASparkContext {
+object SparkConf2 {
     private val sparkConf = new SparkConf().setMaster("local").setAppName("basic_spark")
             .set("spark.shuffle.consolidateFiles", "true")
             .set("spark.shuffle.spill", "true")
@@ -26,8 +26,4 @@ object ASparkContext {
             .set("spark.yarn.executor.memoryOverhead", "3000")
 
     val sparkContext = new SparkContext(sparkConf)
-
-    def getSparkContext(): SparkContext ={
-        return sparkContext
-    }
 }
