@@ -21,8 +21,8 @@ public class HBaseUtilJava {
 
     public static Configuration connection(String table) {
         System.out.println("==== CONNECTION START===");
+
         Configuration hbaseConfig = HBaseConfiguration.create();
-        //hbaseConfig.set(HBASEQUORUM, "137.185.232.138");
         hbaseConfig.set(HBASEQUORUM, "localhost");
         hbaseConfig.set(HBASEPORT, "2181");
         hbaseConfig.set(TableInputFormat.INPUT_TABLE, table);

@@ -31,7 +31,7 @@ object HBaseRead {
     //hbaseRDD.collect().foreach(println)
 
     val keyValue = hbaseRDD.map(x => x._2).map(
-      x => (x, Bytes.toString(x.getValue("cf".getBytes, "name".getBytes))))
+      x => ("name", Bytes.toString(x.getValue("cf".getBytes, "name".getBytes))))
 
     keyValue.collect.foreach (x => println (x._1 + "-->" + x._2))
 
