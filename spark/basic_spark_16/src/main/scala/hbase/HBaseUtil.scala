@@ -8,7 +8,7 @@ import org.apache.hadoop.hbase.util.Base64
 /**
   * Created by abilash on 10/6/17.
   */
-object HBaseUtils {
+object HBaseUtil {
 
   def convertScanToString(scan: Scan): String = {
     val proto: ClientProtos.Scan = ProtobufUtil.toScan(scan);
