@@ -15,6 +15,8 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
 import scala.Tuple2;
 
+import java.util.List;
+
 /**
  * Created by Abilash George Thomas on 25/9/17.
  */
@@ -48,11 +50,22 @@ public class HBaseReadJava {
         }).map(new Function<Result, KeyValueData>() {
             //@Override
             public KeyValueData call(Result result) throws Exception {
-                return new KeyValueData(Bytes.toString(result.getValue("cf".getBytes(), "name".getBytes())), Bytes.toString(result.getValue("cf".getBytes(), "name".getBytes())));
+                return new KeyValueData("name", Bytes.toString(result.getValue("cf".getBytes(), "name".getBytes())));
             }
         });
 
+        // count
         System.out.println("---------" + resultRdd.count());
+
+        // print
+        List<KeyValueData> kvList = resultRdd.collect();
+
+        for (KeyValueData keyValue: kvList){
+            System.out.println("-----------------");
+            System.out.println(keyValue.getKey());
+            System.out.println(keyValue.getValue());
+            System.out.println("-----------------");
+        }
     }
 
 }
