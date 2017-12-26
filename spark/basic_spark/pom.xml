@@ -15,14 +15,14 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <scala.version>2.11.8</scala.version>
+        <scala.version>2.11.12</scala.version>
         <spark.version>2.1.0</spark.version>
     </properties>
 
     <repositories>
         <repository>
             <id>spark-kafka</id>
-            <url>https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka_2.10</url>
+            <url>https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka_2.11</url>
         </repository>
     </repositories>
 
@@ -37,29 +37,29 @@
         <!-- spark -->
         <dependency>
           <groupId>org.apache.spark</groupId>
-          <artifactId>spark-core_2.10</artifactId>
+          <artifactId>spark-core_2.11</artifactId>
           <version>${spark.version}</version>
         </dependency>
         <!-- spark sql and hive -->
         <dependency>
           <groupId>org.apache.spark</groupId>
-          <artifactId>spark-sql_2.10</artifactId>
+          <artifactId>spark-sql_2.11</artifactId>
           <version>${spark.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-hive_2.10</artifactId>
+            <artifactId>spark-hive_2.11</artifactId>
             <version>${spark.version}</version>
         </dependency>
         <!-- spark streaming -->
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming_2.10</artifactId>
+            <artifactId>spark-streaming_2.11</artifactId>
             <version>${spark.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming-kafka-0-8_2.10</artifactId>
+            <artifactId>spark-streaming-kafka-0-8_2.11</artifactId>
             <version>${spark.version}</version>
         </dependency>
         <!--
