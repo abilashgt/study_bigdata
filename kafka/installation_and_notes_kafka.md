@@ -21,7 +21,7 @@ bin/kafka-server-stop.sh config/server.properties
 
 ### Create Topic ###
 
-kafka-topics.sh --zookeeper localhost:2181 --create --topic topic-name
+kafka-topics.sh --zookeeper localhost:2181 --create --topic topic-name  
 kafka-topics.sh --zookeeper localhost:2181 --create --topic topic-name --replication-factor 1 --partitions 1 
 
 
