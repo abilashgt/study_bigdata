@@ -15,7 +15,8 @@ import org.apache.spark.streaming.kafka._
 object KafkaWordCount {
   def main(args: Array[String]) {
     if (args.length < 4) {
-      System.err.println("Usage: KafkaWordCount <zkQuorum><group> <topics> <numThreads>")
+      // e.g localhost:2181 group1 topic-name 2
+      System.err.println("Usage: KafkaWordCount <zkQuorum> <group> <topics> <numThreads>")
       System.exit(1)
     }
 
