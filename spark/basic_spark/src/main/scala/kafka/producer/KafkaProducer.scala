@@ -5,19 +5,18 @@ import org.apache.kafka.clients.producer._
 
 
 object KafkaProducer extends App {
+  // input
+  val topic = "test-topic-name"
+  val msg = "test 1 test 2 test 1 2"
 
-  if(args.length<2){
-    println("Please enter arguments: topic, message")
-    sys.exit()
-  }
-
+  // config
   val  properties = new Properties()
   properties.put("bootstrap.servers", "localhost:9092")
   properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer")
   properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer")
 
   val producer = new KafkaProducer[String, String](properties)
-  val record = new ProducerRecord(args(0), "key", args(1))
+  val record = new ProducerRecord(topic, "key", msg)
   producer.send(record)
 
   producer.close()

@@ -21,13 +21,8 @@ public class KafkaProducerJava {
     public static void main(String[] args) {
         new KafkaProducerJava();
 
-        if (args.length < 2) {
-            System.out.println("Please enter arguments: topic, message");
-            System.exit(0);
-        }
-
-        String topic = args[0];
-        String msg = args[1];
+        String topic = "test-topic-name";
+        String msg = "test1 test2 test1";
 
         try {
             KeyedMessage<Integer, String> data = new KeyedMessage(
