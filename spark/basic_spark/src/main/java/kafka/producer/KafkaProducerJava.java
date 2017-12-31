@@ -30,7 +30,6 @@ public class KafkaProducerJava {
             System.out.println(data);
             producer.send(data);
         } catch (Exception e) {
-            producer.close();
             e.printStackTrace();
         } finally {
             producer.close();
