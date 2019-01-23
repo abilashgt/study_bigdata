@@ -10,7 +10,7 @@ from pyspark.sql.types import *
 from pyspark.sql import Row
 
 sc = SparkContext('local', 'Exam_3')
-sqlc = SQLContext(sc)
+sqlContext = SQLContext(sc)
 
 # test python
 print("test python")
@@ -20,6 +20,7 @@ rdd = sc.parallelize(['test','spark'])
 print(rdd.collect())  # print
 
 # create dataframe
+print("\n### DataFrame ###")
 l = [('Abilash',25),('George',22),('Thomas',20),('Mathew',26)]
 rdd = sc.parallelize(l)
 people = rdd.map(lambda x: Row(name=x[0], age=int(x[1])))
