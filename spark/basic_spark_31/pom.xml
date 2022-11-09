@@ -9,14 +9,18 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>basic-spark</name>
+    <name>basic-spark-31</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-        <scala.version>2.11.12</scala.version>
-        <spark.version>2.4.0</spark.version>
+        <java.version>11</java.version>
+        <scala-library.version>2.12.8</scala-library.version>
+        <scala_major.version>2.12</scala_major.version>
+        <spark.version>3.1.1</spark.version>
+        <kafka.version>2.2.0</kafka.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <repositories>
@@ -31,39 +35,33 @@
         <dependency>
           <groupId>org.scala-lang</groupId>
           <artifactId>scala-library</artifactId>
-          <version>${scala.version}</version>
+          <version>${scala-library.version}</version>
         </dependency>
 
         <!-- spark -->
         <dependency>
           <groupId>org.apache.spark</groupId>
-          <artifactId>spark-core_2.11</artifactId>
+          <artifactId>spark-core_${scala_major.version}</artifactId>
           <version>${spark.version}</version>
         </dependency>
-        <!-- spark sql and hive -->
         <dependency>
           <groupId>org.apache.spark</groupId>
-          <artifactId>spark-sql_2.11</artifactId>
+          <artifactId>spark-sql_${scala_major.version}</artifactId>
           <version>${spark.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-hive_2.11</artifactId>
-            <version>${spark.version}</version>
         </dependency>
         <!-- spark streaming -->
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming_2.11</artifactId>
+            <artifactId>spark-streaming_${scala_major.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
             <version>2.4.0</version>
         </dependency>
-       <!--
-       <dependency>
+        <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka_2.11</artifactId>
             <version>0.11.0.1</version>
@@ -74,54 +72,6 @@
             <version>0.11.0.1</version>
         </dependency> -->
 
-        <!-- hbase -->
-        <dependency>
-            <groupId>org.apache.hbase</groupId>
-            <artifactId>hbase-client</artifactId>
-            <version>1.3.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.codehaus.jackson</groupId>
-                    <artifactId>jackson-core-asl</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.hbase</groupId>
-            <artifactId>hbase-server</artifactId>
-            <version>1.3.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.codehaus.jackson</groupId>
-                    <artifactId>jackson-core-asl</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
 
         <!-- testing -->
         <dependency>
